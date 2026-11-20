@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Maaf dari [Yoga Halim] untuk [Maimuna Tanassy]</title>
+<title>Maaf dari beta [Yoga Halim]</title>
 <style>
   :root {
     --pink: #ff6b9d;
@@ -52,7 +52,7 @@
   .screen, main { position: relative; z-index: 2; }
   .hidden { display: none !important; }
 
-  /* ============ GERBANG PEMBUKA ============ */
+  /* GERBANG PEMBUKA */
   .screen {
     min-height: 100vh;
     display: grid;
@@ -122,7 +122,7 @@
     border: 1px solid #ffc8dc;
   }
 
-  /* ============ MAIN ============ */
+  /* MAIN CONTENT */
   main {
     max-width: 920px;
     margin: 0 auto;
@@ -173,7 +173,7 @@
     background: linear-gradient(90deg, #ffc8dc, transparent);
   }
 
-  /* ============ FOTO UTAMA (POLAROID) ============ */
+  /* FOTO UTAMA (POLAROID) */
   .hero-photo-wrap {
     display: flex;
     justify-content: center;
@@ -227,7 +227,7 @@
   .polaroid .frame img:not([src]),
   .polaroid .frame img[src=""] { display: none; }
 
-  /* ============ TIMELINE KENANGAN ============ */
+  /* TIMELINE KENANGAN */
   .timeline { display: grid; gap: 20px; }
 
   .memory {
@@ -306,7 +306,7 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
-  /* ============ GALERI ============ */
+  /* GALERI */
   .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -333,7 +333,7 @@
     display: block;
   }
 
-  /* ============ MULTIBAHASA ============ */
+  /* MULTIBAHASA */
   .multilang-card {
     padding: 24px;
     border-radius: 26px;
@@ -361,7 +361,7 @@
     font-weight: 600;
   }
 
-  /* ============ SURAT ============ */
+  /* SURAT */
   .letter-box {
     padding: 26px;
     border-radius: 28px;
@@ -387,7 +387,7 @@
   }
   @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
 
-  /* ============ FINAL ============ */
+  /* FINAL */
   .final-card {
     margin-top: 26px;
     padding: 28px 22px;
@@ -431,19 +431,75 @@
     .gate-card { padding: 34px 20px; }
     .letter-box { padding: 20px; }
   }
+
+  /* MUSIK */
+  #musicBtn {
+    position: fixed;
+    bottom: 22px;
+    right: 22px;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    border: none;
+    background: linear-gradient(135deg, #ff8fb6, #ff5f96);
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 12px 28px rgba(255, 95, 150, 0.4);
+    z-index: 999;
+    display: grid;
+    place-items: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    animation: pulseMusic 2.4s infinite;
+  }
+  #musicBtn:hover { transform: scale(1.08); }
+  #musicBtn.paused { animation: none; opacity: 0.75; }
+
+  @keyframes pulseMusic {
+    0%, 100% { box-shadow: 0 12px 28px rgba(255, 95, 150, 0.4); }
+    50%      { box-shadow: 0 12px 38px rgba(255, 95, 150, 0.7), 0 0 0 10px rgba(255, 95, 150, 0.12); }
+  }
+
+  #musicLabel {
+    position: fixed;
+    bottom: 36px;
+    right: 90px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #a63a65;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 999px;
+    box-shadow: 0 6px 16px rgba(180, 60, 110, 0.15);
+    z-index: 999;
+    opacity: 0;
+    transform: translateX(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  #musicLabel.show { opacity: 1; transform: translateX(0); }
 </style>
 </head>
 <body>
 
 <div id="hearts" aria-hidden="true"></div>
 
-<!-- ================= GERBANG PEMBUKA ================= -->
+<!-- MUSIK LATAR -->
+<audio id="bgMusic" loop preload="auto">
+  <source src="lagu.mp3" type="audio/mpeg" />
+</audio>
+
+<button id="musicBtn" aria-label="Putar atau jeda musik" title="Putar / Jeda musik">♪</button>
+<div id="musicLabel">Putar lagu 🎵</div>
+
+<!-- GERBANG PEMBUKA -->
 <div id="gate" class="screen">
   <div class="gate-card">
     <div class="big-heart">💌</div>
     <h1>Untuk [Maimuna Tanassy]</h1>
     <p>
-      Aku menyiapkan satu pesan kecil mungkin tidak sempurna,
+      Aku menyiapkan satu pesan kecil—mungkin tidak sempurna,
       tapi aku buat dengan hati yang sedang belajar minta maaf dengan tulus.
       Buka ya, pelan-pelan.
     </p>
@@ -451,24 +507,24 @@
   </div>
 </div>
 
-<!-- ================= KONTEN UTAMA ================= -->
+<!-- KONTEN UTAMA -->
 <main id="main" class="hidden">
   <section class="hero">
     <span class="mini-title">Pesan maaf dari [Yoga Halim]</span>
     <h1>Maaf, ya. Aku benar-benar minta maaf.</h1>
 
-    <!-- FOTO UTAMA (POLAROID) — ganti img/fotoutama.jpg -->
+    <!-- FOTO UTAMA -->
     <div class="hero-photo-wrap">
       <div class="polaroid">
         <div class="frame">
-          <img src="img\fotoutama.jpeg" alt="Kita"
+          <img src="img/fotoutama.jpeg" alt="Kita"
                onerror="this.style.display='none'; this.parentElement.textContent='💗';" />
         </div>
       </div>
     </div>
 
     <p>
-      Aku tidak mau membela diri. Aku hanya ingin jujur bahwa aku yang salah,
+      Aku tidak mau membela diri. Aku hanya ingin jujur bahwa aku menyesal,
       aku menghargai semua kenangan kita, dan aku ingin belajar menjadi lebih baik
       untukmu—bukan karena terpaksa, tapi karena kamu berarti.
     </p>
@@ -491,105 +547,93 @@
   <section class="final-card">
     <h2>Aku tidak memaksa. Aku hanya meminta kesempatan.</h2>
     <p>
-      Kalau dewi masih butuh waktu, beta mengerti. Tapi kalau dewi sudah siap, beta ingin mendengar jawaban maafmu dengan hati yang terbuka.
+      Kalau kamu masih butuh waktu, aku mengerti. Kalau kamu mau memberi aku
+      kesempatan untuk memperbaiki, aku akan menjaganya dengan sungguh-sungguh.
     </p>
     <div class="final-actions">
-      <button id="btnYes" class="btn-yes">aku maafin, ayo bicara pelan-pelan 🤍</button>
-      <button id="btnWait" class="btn-wait">aku masih butuh waktu 🌙</button>
+      <button id="btnYes" class="btn-yes">Aku maafin, ayo bicara pelan-pelan 🤍</button>
+      <button id="btnWait" class="btn-wait">Aku masih butuh waktu 🌙</button>
     </div>
     <div id="finalResponse"></div>
   </section>
 
   <p class="footer-note">
     Dibuat bukan untuk memaksa jawaban, tapi untuk menyampaikan maaf dengan jujur.<br />
-    — [Maimuna Tanassy] 💗
+    — Dari Aku
   </p>
 </main>
 
 <script>
-  /* =========================================================
-     ✏️ GANTI DI SINI — KENANGAN + FOTO
-     Nama file foto = taruh di folder "img" di repo GitHub.
-     Kalau belum ada foto, biarkan "photo": "" (placeholder muncul).
-     ========================================================= */
+  // KENANGAN (Nama file disesuaikan dengan repo kamu)
   const memories = [
     {
-      date: "[11 september 2026]",
+      date: "Momen Pertama",
       title: "Awal yang masih canggung",
-      text: "beta masih ingat waktu katong malu malu dekat. Obrolan sederhana, tawa yang agak canggung, tapi rasanya hangat. Dari situ beta sadar, hadirmu bukan hal yang biasa buatbeta.",
-      photo: "img\maaf1.jpeg"   // <<< GANTI
+      text: "Aku masih ingat waktu kita mulai dekat. Obrolan sederhana, tawa yang agak canggung, tapi rasanya hangat. Dari situ aku sadar, hadirmu bukan hal yang biasa buatku.",
+      photo: "img/maaf1.jpeg"
     },
     {
-      date: "[26 oktober 2026]",
-      title: "Malam panjang tempat kita bercerita",
-      text: "Kita pernah begadang, saling cerita hal-hal yang tidak masuk akal. se mendengarkan beta, dan beta rasa kehadiranmu itu spesial.",
-      photo: "img\maaf2.jpeg"   // <<< GANTI
+      date: "Malam Panjang",
+      title: "Tempat kita bercerita",
+      text: "Kita pernah begadang, saling cerita hal-hal kecil dan besar. Kamu mendengarkan aku, dan aku merasa tidak sendirian.",
+      photo: "img/maaf2.jpeg"
     },
     {
-      date: "[18 november 2026]",
+      date: "Waktu Itu",
       title: "Saat kamu tidak enak badan",
-      text: "b ingin selalu ada di sampingmu pada malam itu. Maaf kalau di saat seperti itu beta masih kurang peka.",
-      photo: img\maaf6.jpeg"   // <<< GANTI
+      text: "Aku ingat aku ingin selalu ada di sampingmu. Maaf kalau di saat seperti itu aku masih kurang peka.",
+      photo: "img/maaf6.jpeg"
     },
     {
-      date: "[1 november 2026]",
-      title: "Perjalanan kecil kita",
+      date: "Perjalanan Kecil",
+      title: "Jalan bareng kita",
       text: "Hal-hal sederhana seperti jalan bareng, cari makan, atau sekadar duduk berdua itu yang sekarang aku rindukan.",
-      photo: "img\maaf4.jpeg"   // <<< GANTI
+      photo: "img/maaf4.jpeg"
     },
     {
-      date: "[ini malam 21 november 2026]",
-      title: "Di sini aku salah",
-      text: "Aku yang salah kurang menjaga perasaanmu, atau mungkin kurang berfikir tentang apa yang akan di katakan. beta minta maaf.",
-      photo: "img\maaf5.jpeg"   // <<< GANTI
+      date: "Di Sini Aku Salah",
+      title: "Aku menyesal",
+      text: "Aku tidak akan mencari alasan. Aku salah karena kurang mendengarkan, kurang menjaga perasaanmu, atau mungkin terlalu egois. Aku menyesal.",
+      photo: "img/maaf5.jpeg"
     }
   ];
 
-  /* =========================================================
-     ✏️ GANTI DI SINI — GALERI FOTO (4–8 foto)
-     ========================================================= */
+  // GALERI (Nama file disesuaikan dengan repo kamu)
   const galleryPhotos = [
-    "img\kenangan1.jpeg",   // <<< GANTI
-    "img\kenangan2.jpeg",   // <<< GANTI
-    "img\kenangan3.jpeg",   // <<< GANTI
-    "img\kenangan4.jpeg",   // <<< GANTI
-    "img\kenangan5.jpeg",   // <<< GANTI
-    "img\kenangan6.jpeg",
-    "img\kenangan7.jpeg",
-    "img\kenangan8.jpeg"    // <<< GANTI
+    "img/kenangan1.jpeg",
+    "img/kenangan2.jpeg",
+    "img/kenangan3.jpeg",
+    "img/kenangan4.jpeg",
+    "img/kenangan5.jpeg",
+    "img/kenangan6.jpeg"
   ];
 
-  /* =========================================================
-     PESAN MULTIBAHASA
-     ========================================================= */
   const languages = [
     { label: "Bahasa Indonesia", text: "Aku minta maaf dengan tulus. Bukan karena ingin cepat selesai, tapi karena aku benar-benar menyesal dan ingin memperbaikinya." },
     { label: "English", text: "I am truly sorry. Not just to end the argument, but because I genuinely regret hurting you and I want to make things right." },
     { label: "Bahasa Jawa", text: "Aku njaluk ngapura tenan saka ati. Ora mung supaya cepet rampung, nanging aku pancen getun lan pengin ndandani kabeh." },
+    { label: "العربية", text: "أنا آسف من كل قلبي. لست آسفاً فقط لإنهاء الخلاف، بل لأنني نادم حقاً وأريد أن أصلح ما أفسدته." },
     { label: "Français", text: "Je suis vraiment désolé. Pas seulement pour arrêter la dispute, mais parce que je regrette sincèrement et je veux réparer les choses." }
   ];
 
   const letterText =
-`[Maimuna Tanassy],
+`Untuk Kamu,
 
 Aku tidak tahu bagaimana cara memulai tanpa terdengar seperti sedang membela diri. Jadi aku mulai dari yang paling jujur saja: aku minta maaf.
 
-Aku menyesal karena telah membuatmu sedih. Aku menyesal kalau kata-kataku, atau caraku menyelesaikan hal membuatmu merasa tidak didengar.
+Aku menyesal karena telah membuatmu kecewa. Aku menyesal kalau kata-kataku, sikapku, atau caraku menyelesaikan hal membuatmu merasa tidak didengar.
 
-Aku ingat kenangan kita—hal-hal yang mungkin terlihat kecil, tapi berarti buatku. Dari situ aku sadar, aku tidak ingin kehilangan kamu.
+Aku ingat kenangan kita—hal-hal yang mungkin terlihat kecil, tapi berarti buatku. Dari situ aku sadar, aku tidak ingin kehilangan kamu hanya karena ego atau kelalaianku.
 
-Aku tidak meminta kamu langsung memaafkan. Aku hanya ingin kamu tahu bahwa permintaan maafku bukan sekadar kata. Aku ingin belajar kalau bicara itu harus di pikir pikir dulu, dan lebih menjaga perasaanmu.
+Aku tidak meminta kamu langsung memaafkan. Aku hanya ingin kamu tahu bahwa permintaan maafku bukan sekadar kata. Aku ingin belajar mendengarkan lebih baik, lebih peka, dan lebih menjaga perasaanmu.
 
 Kalau hari ini kamu masih butuh waktu, aku mengerti. Aku tidak akan memaksa. Tapi kalau kamu membaca ini sampai selesai, terima kasih.
 
 Aku sayang kamu. Dan aku benar-benar minta maaf.
 
 Dari,
-[Yoga Halim]`;
+Aku`;
 
-  /* =========================================================
-     JALANKAN
-     ========================================================= */
   const gate = document.getElementById("gate");
   const main = document.getElementById("main");
   const memoriesEl = document.getElementById("memories");
@@ -602,6 +646,7 @@ Dari,
   let langInterval = null;
   let typingStarted = false;
 
+  // FUNGSI KLIK BUKA (Sudah diperbaiki)
   document.getElementById("openBtn").addEventListener("click", function () {
     gate.classList.add("hidden");
     main.classList.remove("hidden");
@@ -609,17 +654,16 @@ Dari,
     renderGallery();
     startLanguageCycle();
     startTypewriter();
-  });
-
-  function photoBox(photo, fallbackEmoji) {
-    if (!photo) {
-      return `<div class="frame" style="font-size:52px;">${fallbackEmoji}</div>`;
+    
+    // Mainkan musik
+    if (!musicStarted) {
+      bgMusic.volume = 0.55;
+      bgMusic.play().catch(() => {});
+      musicStarted = true;
+      setTimeout(showLabelOnce, 600);
+      setTimeout(updateMusicUI, 400);
     }
-    return `<div class="frame">
-      <img src="${photo}" alt="Kenangan"
-           onerror="this.style.display='none'; this.parentElement.textContent='${fallbackEmoji}';" />
-    </div>`;
-  }
+  });
 
   function renderMemories() {
     const emojis = ["💗","🌸","💌","🌷","🤍"];
@@ -699,6 +743,7 @@ Dari,
     burstHearts(10);
   });
 
+  // HATI MELAYANG
   const heartContainer = document.getElementById("hearts");
   const heartIcons = ["💗","💖","🌸","💌","🤍","💕"];
 
@@ -718,6 +763,46 @@ Dari,
   }
 
   setInterval(spawnHeart, 650);
+
+  // LOGIKA MUSIK
+  const bgMusic = document.getElementById("bgMusic");
+  const musicBtn = document.getElementById("musicBtn");
+  const musicLabel = document.getElementById("musicLabel");
+  let musicStarted = false;
+
+  function updateMusicUI() {
+    if (bgMusic.paused) {
+      musicBtn.textContent = "♪";
+      musicBtn.classList.add("paused");
+      musicLabel.textContent = "Putar lagu 🎵";
+    } else {
+      musicBtn.textContent = "❚❚";
+      musicBtn.classList.remove("paused");
+      musicLabel.textContent = "Jeda lagu ⏸";
+    }
+  }
+
+  function showLabelOnce() {
+    musicLabel.classList.add("show");
+    setTimeout(() => musicLabel.classList.remove("show"), 3500);
+  }
+
+  musicBtn.addEventListener("click", function () {
+    if (bgMusic.paused) {
+      bgMusic.play().catch(() => {});
+      showLabelOnce();
+    } else {
+      bgMusic.pause();
+    }
+    setTimeout(updateMusicUI, 150);
+  });
+
+  bgMusic.addEventListener("play", updateMusicUI);
+  bgMusic.addEventListener("pause", updateMusicUI);
+  bgMusic.addEventListener("error", function () {
+    musicBtn.style.display = "none";
+    musicLabel.style.display = "none";
+  });
 </script>
 </body>
 </html>
