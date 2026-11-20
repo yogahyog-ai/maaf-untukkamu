@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Maaf dari [Yoga Halim] untuk [Maimuna Tanassy]</title>
+<style>
+  :root {
+    --pink: #ff6b9d;
+    --pink-soft: #ffd1e3;
+    --deep: #5a1230;
+    --cream: #fff7fb;
+    --white: #ffffff;
+    --shadow: 0 18px 45px rgba(180, 60, 110, 0.16);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    color: var(--deep);
+    background:
+      radial-gradient(circle at 10% 10%, #ffe3ee 0, transparent 38%),
+      radial-gradient(circle at 90% 20%, #ffeaf4 0, transparent 35%),
+      linear-gradient(160deg, #fff9fc 0%, #ffeef6 55%, #fff7fb 100%);
+    overflow-x: hidden;
+  }
+
+  #hearts {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+  }
+
+  .heart {
+    position: absolute;
+    bottom: -40px;
+    font-size: 18px;
+    animation: floatUp linear forwards;
+    opacity: 0.85;
+    filter: drop-shadow(0 4px 6px rgba(255, 107, 157, 0.25));
+  }
+
+  @keyframes floatUp {
+    to { transform: translateY(-115vh) rotate(360deg); opacity: 0; }
+  }
+
+  .screen, main { position: relative; z-index: 2; }
+  .hidden { display: none !important; }
+
+  /* ============ GERBANG PEMBUKA ============ */
+  .screen {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+  }
+
+  .gate-card {
+    width: min(560px, 100%);
+    text-align: center;
+    padding: 42px 28px;
+    border-radius: 34px;
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(16px);
+    animation: fadeUp 1s ease both;
+  }
+
+  .gate-card .big-heart {
+    font-size: 64px;
+    display: inline-block;
+    animation: beat 1.4s infinite;
+  }
+
+  @keyframes beat {
+    0%, 100% { transform: scale(1); }
+    25% { transform: scale(1.12); }
+    45% { transform: scale(0.98); }
+    60% { transform: scale(1.08); }
+  }
+
+  h1, h2, h3 { margin-top: 0; }
+
+  .gate-card h1 {
+    font-size: clamp(1.6rem, 5vw, 2.4rem);
+    margin: 18px 0 10px;
+  }
+
+  .gate-card p { line-height: 1.7; color: #7a3552; }
+
+  button {
+    border: none;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 700;
+    border-radius: 999px;
+    padding: 14px 24px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  }
+  button:hover { transform: translateY(-2px); }
+  button:active { transform: translateY(0); }
+
+  .btn-main {
+    background: linear-gradient(135deg, #ff8fb6, #ff5f96);
+    color: white;
+    box-shadow: 0 12px 24px rgba(255, 95, 150, 0.32);
+  }
+  .btn-yes {
+    background: linear-gradient(135deg, #ff7ba9, #ff4f8b);
+    color: white;
+    box-shadow: 0 12px 24px rgba(255, 79, 139, 0.3);
+  }
+  .btn-wait {
+    background: #fff;
+    color: #a63a65;
+    border: 1px solid #ffc8dc;
+  }
+
+  /* ============ MAIN ============ */
+  main {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 34px 18px 80px;
+  }
+
+  .hero {
+    text-align: center;
+    padding: 34px 20px 26px;
+  }
+
+  .hero .mini-title {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid #ffd1e3;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #b0446f;
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 7vw, 3.6rem);
+    line-height: 1.1;
+    margin: 18px 0 12px;
+  }
+
+  .hero p {
+    max-width: 620px;
+    margin: 0 auto;
+    line-height: 1.8;
+    color: #7a3552;
+  }
+
+  .section-title {
+    margin: 38px 0 16px;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, #ffc8dc, transparent);
+  }
+
+  /* ============ FOTO UTAMA (POLAROID) ============ */
+  .hero-photo-wrap {
+    display: flex;
+    justify-content: center;
+    margin: 22px 0 6px;
+  }
+
+  .polaroid {
+    background: white;
+    padding: 14px 14px 44px;
+    border-radius: 6px;
+    box-shadow: 0 20px 40px rgba(150, 40, 90, 0.18);
+    transform: rotate(-3deg);
+    transition: transform 0.4s ease;
+    max-width: 260px;
+    position: relative;
+  }
+  .polaroid:hover { transform: rotate(0deg) scale(1.03); }
+
+  .polaroid::after {
+    content: "♡ kita ♡";
+    position: absolute;
+    bottom: 12px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #b0446f;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+  }
+
+  .polaroid .frame {
+    aspect-ratio: 4 / 5;
+    width: 100%;
+    border-radius: 3px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #ffd1e3, #ffeaf4);
+    display: grid;
+    place-items: center;
+    font-size: 60px;
+    position: relative;
+  }
+
+  .polaroid .frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .polaroid .frame img:not([src]),
+  .polaroid .frame img[src=""] { display: none; }
+
+  /* ============ TIMELINE KENANGAN ============ */
+  .timeline { display: grid; gap: 20px; }
+
+  .memory {
+    position: relative;
+    padding: 22px 22px 22px 26px;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.95);
+    box-shadow: 0 12px 30px rgba(180, 60, 110, 0.1);
+    backdrop-filter: blur(10px);
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 18px;
+    align-items: start;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .memory::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 20px;
+    bottom: 20px;
+    width: 5px;
+    border-radius: 999px;
+    background: linear-gradient(#ff9cc0, #ff5f96);
+  }
+
+  .memory-photo {
+    aspect-ratio: 1 / 1;
+    border-radius: 14px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #ffd1e3, #ffeaf4);
+    display: grid;
+    place-items: center;
+    font-size: 40px;
+    box-shadow: 0 8px 18px rgba(180, 60, 110, 0.15);
+  }
+
+  .memory-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .memory .date {
+    font-size: 0.8rem;
+    color: #b0446f;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .memory h3 {
+    margin: 6px 0 8px;
+    font-size: 1.08rem;
+  }
+
+  .memory p {
+    margin: 0;
+    line-height: 1.7;
+    color: #6f2a47;
+  }
+
+  @media (max-width: 520px) {
+    .memory {
+      grid-template-columns: 1fr;
+      padding: 18px 18px 18px 24px;
+    }
+    .memory-photo { aspect-ratio: 16 / 10; font-size: 48px; }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ============ GALERI ============ */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 14px;
+  }
+
+  .gallery-item {
+    aspect-ratio: 1 / 1;
+    border-radius: 16px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #ffd1e3, #ffeaf4);
+    display: grid;
+    place-items: center;
+    font-size: 42px;
+    box-shadow: 0 10px 24px rgba(180, 60, 110, 0.12);
+    transition: transform 0.3s ease;
+  }
+  .gallery-item:hover { transform: scale(1.04) rotate(1deg); }
+
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* ============ MULTIBAHASA ============ */
+  .multilang-card {
+    padding: 24px;
+    border-radius: 26px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 240, 247, 0.82));
+    border: 1px solid #ffd1e3;
+    box-shadow: var(--shadow);
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: opacity 0.35s ease;
+  }
+  .lang-label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #b0446f;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+  .multilang-card p {
+    margin: 0;
+    font-size: clamp(1.05rem, 2.8vw, 1.35rem);
+    line-height: 1.65;
+    font-weight: 600;
+  }
+
+  /* ============ SURAT ============ */
+  .letter-box {
+    padding: 26px;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.86);
+    border: 1px solid #ffe0ec;
+    box-shadow: var(--shadow);
+  }
+  .letter {
+    white-space: pre-wrap;
+    line-height: 1.9;
+    min-height: 280px;
+    font-size: 1rem;
+    color: #55122e;
+  }
+  .cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1.1em;
+    background: var(--pink);
+    margin-left: 2px;
+    vertical-align: -0.15em;
+    animation: blink 0.8s infinite;
+  }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+  /* ============ FINAL ============ */
+  .final-card {
+    margin-top: 26px;
+    padding: 28px 22px;
+    border-radius: 28px;
+    text-align: center;
+    background: radial-gradient(circle at top, #fff 0, #fff5f9 100%);
+    border: 1px solid #ffd1e3;
+    box-shadow: var(--shadow);
+  }
+  .final-card h2 { font-size: clamp(1.4rem, 4vw, 2rem); margin-bottom: 10px; }
+  .final-card p {
+    line-height: 1.75;
+    color: #7a3552;
+    max-width: 620px;
+    margin: 0 auto 20px;
+  }
+  .final-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+  }
+  #finalResponse {
+    margin-top: 18px;
+    min-height: 28px;
+    font-weight: 700;
+    color: #a63a65;
+    line-height: 1.7;
+  }
+
+  .footer-note {
+    text-align: center;
+    margin-top: 34px;
+    color: #b26a88;
+    font-size: 0.88rem;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 520px) {
+    main { padding-top: 20px; }
+    .gate-card { padding: 34px 20px; }
+    .letter-box { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div id="hearts" aria-hidden="true"></div>
+
+<!-- ================= GERBANG PEMBUKA ================= -->
+<div id="gate" class="screen">
+  <div class="gate-card">
+    <div class="big-heart">💌</div>
+    <h1>Untuk [Maimuna Tanassy]</h1>
+    <p>
+      Aku menyiapkan satu pesan kecil—mungkin tidak sempurna,
+      tapi aku buat dengan hati yang sedang belajar minta maaf dengan tulus.
+      Buka ya, pelan-pelan.
+    </p>
+    <button id="openBtn" class="btn-main">Buka dengan Hati Terbuka 💗</button>
+  </div>
+</div>
+
+<!-- ================= KONTEN UTAMA ================= -->
+<main id="main" class="hidden">
+  <section class="hero">
+    <span class="mini-title">Pesan maaf dari [Maimuna Tanassy]</span>
+    <h1>Maaf, ya. Aku benar-benar minta maaf.</h1>
+
+    <!-- FOTO UTAMA (POLAROID) — ganti img/foto-utama.jpg -->
+    <div class="hero-photo-wrap">
+      <div class="polaroid">
+        <div class="frame">
+          <img src="D:\Tugas Semester 5\minta maaf\image\fotoutama.jpeg" alt="Kita"
+               onerror="this.style.display='none'; this.parentElement.textContent='💗';" />
+        </div>
+      </div>
+    </div>
+
+    <p>
+      Aku tidak mau membela diri. Aku hanya ingin jujur bahwa aku yang salah,
+      aku menghargai semua kenangan kita, dan aku ingin belajar menjadi lebih baik
+      untukmu—bukan karena terpaksa, tapi karena kamu berarti.
+    </p>
+  </section>
+
+  <h2 class="section-title">🌷 Kenangan yang Tidak Aku Lupakan</h2>
+  <div id="memories" class="timeline"></div>
+
+  <h2 class="section-title">📸 Galeri Kecil Kita</h2>
+  <div id="gallery" class="gallery"></div>
+
+  <h2 class="section-title">🌍 Maaf dalam Berbagai Bahasa</h2>
+  <div id="multiLang" class="multilang-card"></div>
+
+  <h2 class="section-title">💌 Surat Kecil untukmu</h2>
+  <div class="letter-box">
+    <div id="letter" class="letter"></div>
+  </div>
+
+  <section class="final-card">
+    <h2>Aku tidak memaksa. Aku hanya meminta kesempatan.</h2>
+    <p>
+      Kalau dewi masih butuh waktu, beta mengerti. Tapi kalau dewi sudah siap, beta ingin mendengar jawaban maafmu dengan hati yang terbuka.
+    </p>
+    <div class="final-actions">
+      <button id="btnYes" class="btn-yes">aku maafin, ayo bicara pelan-pelan 🤍</button>
+      <button id="btnWait" class="btn-wait">aku masih butuh waktu 🌙</button>
+    </div>
+    <div id="finalResponse"></div>
+  </section>
+
+  <p class="footer-note">
+    Dibuat bukan untuk memaksa jawaban, tapi untuk menyampaikan maaf dengan jujur.<br />
+    — [Maimuna Tanassy] 💗
+  </p>
+</main>
+
+<script>
+  /* =========================================================
+     ✏️ GANTI DI SINI — KENANGAN + FOTO
+     Nama file foto = taruh di folder "img" di repo GitHub.
+     Kalau belum ada foto, biarkan "photo": "" (placeholder muncul).
+     ========================================================= */
+  const memories = [
+    {
+      date: "[11 september 2026]",
+      title: "Awal yang masih canggung",
+      text: "beta masih ingat waktu katong malu malu dekat. Obrolan sederhana, tawa yang agak canggung, tapi rasanya hangat. Dari situ beta sadar, hadirmu bukan hal yang biasa buatbeta.",
+      photo: "D:\Tugas Semester 5\minta maaf\image\maaf1.jpeg"   // <<< GANTI
+    },
+    {
+      date: "[26 oktober 2026]",
+      title: "Malam panjang tempat kita bercerita",
+      text: "Kita pernah begadang, saling cerita hal-hal yang tidak masuk akal. se mendengarkan beta, dan beta rasa kehadiranmu itu spesial.",
+      photo: "D:\Tugas Semester 5\minta maaf\image\maaf2.jpeg"   // <<< GANTI
+    },
+    {
+      date: "[18 november 2026]",
+      title: "Saat kamu tidak enak badan",
+      text: "b ingin selalu ada di sampingmu pada malam itu. Maaf kalau di saat seperti itu beta masih kurang peka.",
+      photo: "D:\Tugas Semester 5\minta maaf\image\maaf6.jpeg"   // <<< GANTI
+    },
+    {
+      date: "[1 november 2026]",
+      title: "Perjalanan kecil kita",
+      text: "Hal-hal sederhana seperti jalan bareng, cari makan, atau sekadar duduk berdua itu yang sekarang aku rindukan.",
+      photo: "D:\Tugas Semester 5\minta maaf\image\maaf4.jpeg"   // <<< GANTI
+    },
+    {
+      date: "[ini malam 21 november 2026]",
+      title: "Di sini aku salah",
+      text: "Aku yang salah kurang menjaga perasaanmu, atau mungkin kurang berfikir tentang apa yang akan di katakan. beta minta maaf.",
+      photo: "D:\Tugas Semester 5\minta maaf\image\maaf5.jpeg"   // <<< GANTI
+    }
+  ];
+
+  /* =========================================================
+     ✏️ GANTI DI SINI — GALERI FOTO (4–8 foto)
+     ========================================================= */
+  const galleryPhotos = [
+    "D:\Tugas Semester 5\minta maaf\image\kenangan1.jpeg",   // <<< GANTI
+    "D:\Tugas Semester 5\minta maaf\image\kenangan2.jpeg",   // <<< GANTI
+    "D:\Tugas Semester 5\minta maaf\image\kenangan3.jpeg",   // <<< GANTI
+    "D:\Tugas Semester 5\minta maaf\image\kenangan4.jpeg",   // <<< GANTI
+    "D:\Tugas Semester 5\minta maaf\image\kenangan5.jpeg",   // <<< GANTI
+    "D:\Tugas Semester 5\minta maaf\image\kenangan6.jpeg",
+    "D:\Tugas Semester 5\minta maaf\image\kenangan7.jpeg",
+    "D:\Tugas Semester 5\minta maaf\image\kenangan8.jpeg"    // <<< GANTI
+  ];
+
+  /* =========================================================
+     PESAN MULTIBAHASA
+     ========================================================= */
+  const languages = [
+    { label: "Bahasa Indonesia", text: "Aku minta maaf dengan tulus. Bukan karena ingin cepat selesai, tapi karena aku benar-benar menyesal dan ingin memperbaikinya." },
+    { label: "English", text: "I am truly sorry. Not just to end the argument, but because I genuinely regret hurting you and I want to make things right." },
+    { label: "Bahasa Jawa", text: "Aku njaluk ngapura tenan saka ati. Ora mung supaya cepet rampung, nanging aku pancen getun lan pengin ndandani kabeh." },
+    { label: "Français", text: "Je suis vraiment désolé. Pas seulement pour arrêter la dispute, mais parce que je regrette sincèrement et je veux réparer les choses." }
+  ];
+
+  const letterText =
+`[Maimuna Tanassy],
+
+Aku tidak tahu bagaimana cara memulai tanpa terdengar seperti sedang membela diri. Jadi aku mulai dari yang paling jujur saja: aku minta maaf.
+
+Aku menyesal karena telah membuatmu sedih. Aku menyesal kalau kata-kataku, atau caraku menyelesaikan hal membuatmu merasa tidak didengar.
+
+Aku ingat kenangan kita—hal-hal yang mungkin terlihat kecil, tapi berarti buatku. Dari situ aku sadar, aku tidak ingin kehilangan kamu.
+
+Aku tidak meminta kamu langsung memaafkan. Aku hanya ingin kamu tahu bahwa permintaan maafku bukan sekadar kata. Aku ingin belajar kalau bicara itu harus di pikir pikir dulu, dan lebih menjaga perasaanmu.
+
+Kalau hari ini kamu masih butuh waktu, aku mengerti. Aku tidak akan memaksa. Tapi kalau kamu membaca ini sampai selesai, terima kasih.
+
+Aku sayang kamu. Dan aku benar-benar minta maaf.
+
+Dari,
+[Yoga Halim]`;
+
+  /* =========================================================
+     JALANKAN
+     ========================================================= */
+  const gate = document.getElementById("gate");
+  const main = document.getElementById("main");
+  const memoriesEl = document.getElementById("memories");
+  const galleryEl = document.getElementById("gallery");
+  const multiLangEl = document.getElementById("multiLang");
+  const letterEl = document.getElementById("letter");
+  const finalResponse = document.getElementById("finalResponse");
+
+  let langIndex = 0;
+  let langInterval = null;
+  let typingStarted = false;
+
+  document.getElementById("openBtn").addEventListener("click", function () {
+    gate.classList.add("hidden");
+    main.classList.remove("hidden");
+    renderMemories();
+    renderGallery();
+    startLanguageCycle();
+    startTypewriter();
+  });
+
+  function photoBox(photo, fallbackEmoji) {
+    if (!photo) {
+      return `<div class="frame" style="font-size:52px;">${fallbackEmoji}</div>`;
+    }
+    return `<div class="frame">
+      <img src="${photo}" alt="Kenangan"
+           onerror="this.style.display='none'; this.parentElement.textContent='${fallbackEmoji}';" />
+    </div>`;
+  }
+
+  function renderMemories() {
+    const emojis = ["💗","🌸","💌","🌷","🤍"];
+    memoriesEl.innerHTML = memories.map((m, i) => `
+      <article class="memory" style="animation-delay:${i * 0.12}s">
+        <div class="memory-photo">
+          ${m.photo ? `<img src="${m.photo}" alt="Kenangan"
+              onerror="this.style.display='none'; this.parentElement.textContent='${emojis[i % emojis.length]}';" />`
+            : emojis[i % emojis.length]}
+        </div>
+        <div>
+          <div class="date">${m.date}</div>
+          <h3>${m.title}</h3>
+          <p>${m.text}</p>
+        </div>
+      </article>
+    `).join("");
+  }
+
+  function renderGallery() {
+    const emojis = ["📷","💕","🌷","💌","🌙","🤍"];
+    galleryEl.innerHTML = galleryPhotos.map((src, i) => `
+      <div class="gallery-item">
+        ${src ? `<img src="${src}" alt="Galeri"
+            onerror="this.style.display='none'; this.parentElement.textContent='${emojis[i % emojis.length]}';" />`
+          : emojis[i % emojis.length]}
+      </div>
+    `).join("");
+  }
+
+  function renderLanguage() {
+    const item = languages[langIndex];
+    multiLangEl.style.opacity = "0";
+    setTimeout(() => {
+      multiLangEl.innerHTML = `
+        <div class="lang-label">${item.label}</div>
+        <p>${item.text}</p>
+      `;
+      multiLangEl.style.opacity = "1";
+    }, 180);
+    langIndex = (langIndex + 1) % languages.length;
+  }
+
+  function startLanguageCycle() {
+    renderLanguage();
+    if (langInterval) clearInterval(langInterval);
+    langInterval = setInterval(renderLanguage, 4200);
+  }
+
+  function startTypewriter() {
+    if (typingStarted) return;
+    typingStarted = true;
+    letterEl.innerHTML = "";
+    let i = 0;
+    const cursor = document.createElement("span");
+    cursor.className = "cursor";
+    letterEl.appendChild(cursor);
+    function type() {
+      if (i < letterText.length) {
+        cursor.insertAdjacentText("beforebegin", letterText.charAt(i));
+        i++;
+        setTimeout(type, letterText.charAt(i - 1) === "\n" ? 90 : 22);
+      } else {
+        cursor.remove();
+      }
+    }
+    type();
+  }
+
+  document.getElementById("btnYes").addEventListener("click", function () {
+    finalResponse.textContent = "Terima kasih sudah memberi ruang untuk aku memperbaiki. Aku tidak akan menganggap ini sebagai kemenangan, tapi sebagai tanggung jawab untuk jadi lebih baik. 🤍";
+    burstHearts(28);
+  });
+
+  document.getElementById("btnWait").addEventListener("click", function () {
+    finalResponse.textContent = "Aku mengerti. Aku tidak akan memaksa atau menuntut jawaban. Aku akan menghargai waktu dan ruang yang kamu butuhkan. Kalau nanti kamu siap, aku masih ingin mendengarkan. 🌙";
+    burstHearts(10);
+  });
+
+  const heartContainer = document.getElementById("hearts");
+  const heartIcons = ["💗","💖","🌸","💌","🤍","💕"];
+
+  function spawnHeart() {
+    const el = document.createElement("div");
+    el.className = "heart";
+    el.textContent = heartIcons[Math.floor(Math.random() * heartIcons.length)];
+    el.style.left = Math.random() * 100 + "vw";
+    el.style.fontSize = 14 + Math.random() * 22 + "px";
+    el.style.animationDuration = 6 + Math.random() * 7 + "s";
+    heartContainer.appendChild(el);
+    setTimeout(() => el.remove(), 14000);
+  }
+
+  function burstHearts(count) {
+    for (let i = 0; i < count; i++) setTimeout(spawnHeart, i * 60);
+  }
+
+  setInterval(spawnHeart, 650);
+</script>
+</body>
+</html>
